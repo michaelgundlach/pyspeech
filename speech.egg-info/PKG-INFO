@@ -1,0 +1,51 @@
+Metadata-Version: 1.0
+Name: speech
+Version: 0.1.9
+Summary: A clean interface to Windows speech recognition and text-to-speech capabilities.
+Home-page: http://code.google.com/p/pyspeech/
+Author: Michael Gundlach
+Author-email: gundlach@gmail.com
+License: UNKNOWN
+Description: 
+        Allows your Windows python program to:
+        
+        * execute a callback when certain phrases are heard
+        
+        * execute a callback when any understandable text is heard
+        
+        * have different callbacks for different groups of phrases
+        
+        * convert text to speech.
+        
+        
+        
+        For this to work, you must:
+        
+        * Install the Microsoft Speech kit: download
+        and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
+        * Then open PythonWin (installable via http://tinyurl.com/5ezco9)
+        and choose Tools | COM MakePY utility | Microsoft
+        Speech Object Library 5.0.
+        
+        
+        
+        Then you can just "import speech" and be on your way!
+        
+        
+        
+        Please let me know if you like or use this module - it would make
+        my day!
+        
+Keywords: speech recognition text-to-speech text to speech
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Desktop Environment
