@@ -8,7 +8,7 @@ import thread
 """
 Please let me know if you like or use this module -- it would make my day!
 
-speech.py: Copyright 2008 Michael Gundlach (gundlach at gmail)
+speech.py: Copyright 2008 Michael Gundlach  (gundlach at gmail)
 License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
 For this module to work, you must first:
