@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: speech
-Version: 0.1.9
+Version: 0.2.0
 Summary: A clean interface to Windows speech recognition and text-to-speech capabilities.
 Home-page: http://code.google.com/p/pyspeech/
 Author: Michael Gundlach

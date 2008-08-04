@@ -1,10 +1,7 @@
-import ez_setup
-ez_setup.use_setuptools()
-
 from setuptools import setup
 
 setup(name='speech',
-      version='0.1.9',
+      version='0.2.0',
       py_modules=['speech'],
 
       description="A clean interface to Windows speech recognition " \
