@@ -1,5 +1,8 @@
+ez_setup.py
+ez_setup.pyc
 setup.py
 speech.py
+speech.pyc
 dist/speech-0.1-py2.5.egg
 dist/speech-0.1.1-py2.5.egg
 dist/speech-0.1.2-py2.5.egg
