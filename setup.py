@@ -14,12 +14,8 @@ setup(name='speech',
             * have different callbacks for different groups of phrases\n
             * convert text to speech.\n
           \n
-          For this to work, you must:\n
-            * Install the Microsoft Speech kit: download
-              and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
-            * Then open PythonWin (installable via http://tinyurl.com/5ezco9)
-              and choose Tools | COM MakePY utility | Microsoft
-              Speech Object Library 5.0.\n
+          For this to work, you must first install the Microsoft Speech kit:
+          download and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
           \n
           Then you can just "import speech" and be on your way!\n
           \n

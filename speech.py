@@ -1,21 +1,13 @@
-from win32com.client import constants
-import win32com.client
-import pythoncom
-import time
-import thread
-
-
 """
+speech recognition and voice synthesis module.
+
 Please let me know if you like or use this module -- it would make my day!
 
 speech.py: Copyright 2008 Michael Gundlach  (gundlach at gmail)
 License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
-For this module to work, you must first:
-1. Install the Microsoft Speech kit: download and run "SpeechSDK51.exe"
-   from http://tinyurl.com/5m6v2
-2. Then open PythonWin (installable via http://tinyurl.com/5ezco9) and
-   choose Tools | COM MakePY utility | Microsoft Speech Object Library 5.0.
+For this module to work, you must install the Microsoft Speech kit:
+download and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
 
 Very simple usage example:
 
@@ -23,15 +15,33 @@ import speech
 
 speech.say("Hello")
 
-L1 = speech.listenfor(["hello", "goodbye"], lambda phrase, L: print phrase)
-L2 = speech.listenforanything(
-       lambda txt, listener: if txt == "wow": speech.stoplistening(listener))
+def L1callback(phrase, listener):
+    print phrase
+
+def L2callback(phrase, listener):
+    if phrase == "wow":
+        speech.stoplistening(listener)
+    speech.say(phrase)
+
+L1 = speech.listenfor(["hello", "good bye"], L1callback)
+L2 = speech.listenforanything(L2callback)
 
 while speech.islistening(L2):
   speech.pump_waiting_messages() # each call sleeps .5 secs, so spinloop is OK
 
 speech.stoplistening(L1)
 """
+
+from win32com.client import constants as _constants
+import win32com.client
+import pythoncom
+import time
+import thread
+
+# Make sure that we've got our COM wrappers in place.
+from win32com.client import gencache
+gencache.EnsureModule('{C866CA3A-32F7-11D2-9602-00C04F8EE628}', 0, 5, 0)
+
 
 _loopthread = None
 _listeners = []
@@ -98,7 +108,7 @@ def _startlistening(phraselist, callback):
         grammar.DictationSetState(0)
         # dunno why we pass the constants that we do here
         rule = grammar.Rules.Add("rule",
-                constants.SRATopLevel + constants.SRADynamic, 0)
+                _constants.SRATopLevel + _constants.SRADynamic, 0)
         rule.Clear()
     
         for phrase in phraselist:
@@ -164,6 +174,7 @@ def keeplistening():
     second or so. Only one thread is created even if there are multiple
     calls.  The thread is killed when no listeners exist (when
     stoplistening() has been called on all of them or without an argument.)
+    This can be used in place of a tight loop calling pump_waiting_messages().
     """
     global _loopthread
     if not _loopthread:
@@ -189,6 +200,8 @@ def pump_waiting_messages():
     """Receive all speech events in the COM queue.  Without calling this,
     events may back up and the listeners may never get their callbacks called.
     This then sleeps for .5 seconds so you can safely call it in a loop.
+    keeplistening() will do this for you in a separate thread as long as
+    any listeners are listening.
     """
     pythoncom.PumpWaitingMessages()
     time.sleep(.5) # so users in a spinwait don't lock the CPU
