@@ -1,5 +1,3 @@
-ez_setup.py
-ez_setup.pyc
 setup.py
 speech.py
 speech.pyc

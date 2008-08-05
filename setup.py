@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.3.0',
+      version='0.3.1',
       py_modules=['speech'],
 
       description="A clean interface to Windows speech recognition " \
