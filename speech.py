@@ -8,6 +8,20 @@ License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
 For this module to work, you must install the Microsoft Speech kit:
 download and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
+For this module to work, you need pywin32 (http://tinyurl.com/5ezco9) and
+the Microsoft Speech kit (http://tinyurl.com/zflb).
+
+
+Classes:
+    Listener: represents a command to execute when phrases are heard.
+
+Functions:
+    say(phrase): Say the given phrase out loud.
+    stoplistening(): Like calling stoplistening() on all Listeners.
+    islistening(): True if any Listener is listening.
+    listenforanything(callback): Run a callback when any text is heard.
+    listenfor(phraselist, callback): Run a callback when certain text is heard.
+
 
 Very simple usage example:
 
@@ -53,6 +67,7 @@ _handlerqueue = []
 _eventthread=None
 
 class Listener(object):
+
     """Listens for speech and calls a callback on a separate thread."""
 
     _all = set()
@@ -71,7 +86,7 @@ class Listener(object):
         _ensure_event_thread()
 
     def islistening(self):
-        """True if this listener is listening for speech."""
+        """True if this Listener is listening for speech."""
         return self in Listener._all
 
     def stoplistening(self):
@@ -93,12 +108,14 @@ class Listener(object):
 
 _ListenerBase = win32com.client.getevents("SAPI.SpSharedRecoContext")
 class _ListenerCallback(_ListenerBase):
+
     """Created to fire events upon speech recognition.  Instances of this
     class automatically die when their listener loses a reference to
     its grammar.  TODO: we may need to call self.close() to release the
     COM object, and we should probably make goaway() a method of self
     instead of letting people do it for us.
     """
+
     def __init__(self, oobj, listener, callback):
         _ListenerBase.__init__(self, oobj)
         self._listener = listener
@@ -123,15 +140,15 @@ def say(phrase):
 
 def stoplistening():
     """
-    Stop listening to all listeners.  Returns True if at least one
-    listener existed to stop.
+    Cause all Listeners to stop listening.  Returns True if at least one
+    Listener was listening.
     """
     listeners = set(Listener._all) # clone so stoplistening can pop()
     returns = [l.stoplistening() for l in listeners]
     return any(returns) # was at least one listening?
 
 def islistening():
-    """True if speech is listening to any listeners."""
+    """True if any Listeners are listening."""
     return not not Listener._all
 
 def listenforanything(callback):

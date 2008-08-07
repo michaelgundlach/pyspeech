@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.4.1',
+      version='0.4.3',
       py_modules=['speech'],
       #install_requires=['win32com','pythoncom'],
 
@@ -64,7 +64,7 @@ Resources
       author='Michael Gundlach',
       author_email='gundlach@gmail.com',
       url='http://code.google.com/p/pyspeech/',
-      keywords = "speech recognition text-to-speech text to speech tts"
+      keywords = "speech recognition text-to-speech text to speech tts "
           "voice recognition",
 
       classifiers=[
