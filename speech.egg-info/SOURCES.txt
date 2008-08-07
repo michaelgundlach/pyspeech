@@ -1,7 +1,0 @@
-setup.py
-speech.py
-speech.pyc
-speech.egg-info/PKG-INFO
-speech.egg-info/SOURCES.txt
-speech.egg-info/dependency_links.txt
-speech.egg-info/top_level.txt
