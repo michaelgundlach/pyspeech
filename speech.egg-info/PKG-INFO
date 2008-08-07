@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: speech
-Version: 0.3.1
+Version: 0.3.5
 Summary: A clean interface to Windows speech recognition and text-to-speech capabilities.
 Home-page: http://code.google.com/p/pyspeech/
 Author: Michael Gundlach
@@ -19,8 +19,10 @@ Description:
         
         
         
-        For this to work, you must first install the Microsoft Speech kit:
-        download and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
+        For this to work, you must first install pywin32 (download and
+        run the appropriate version from http://tinyurl.com/5jhg29 ) and
+        the Microsoft Speech kit (download and run "SpeechSDK51.exe" from
+        http://tinyurl.com/5m6v2 ).
         
         
         Then you can just "import speech" and be on your way!

@@ -1,8 +1,9 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.3.1',
+      version='0.3.5',
       py_modules=['speech'],
+      #install_requires=['win32com','pythoncom'],
 
       description="A clean interface to Windows speech recognition " \
         "and text-to-speech capabilities.",
@@ -14,8 +15,10 @@ setup(name='speech',
             * have different callbacks for different groups of phrases\n
             * convert text to speech.\n
           \n
-          For this to work, you must first install the Microsoft Speech kit:
-          download and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
+          For this to work, you must first install pywin32 (download and
+          run the appropriate version from http://tinyurl.com/5jhg29 ) and
+          the Microsoft Speech kit (download and run "SpeechSDK51.exe" from
+          http://tinyurl.com/5m6v2 ).
           \n
           Then you can just "import speech" and be on your way!\n
           \n
