@@ -1,0 +1,73 @@
+Metadata-Version: 1.0
+Name: speech
+Version: 0.4.10
+Summary: A clean interface to Windows speech recognition and text-to-speech capabilities.
+Home-page: http://code.google.com/p/pyspeech/
+Author: Michael Gundlach
+Author-email: gundlach@gmail.com
+License: UNKNOWN
+Description: 
+        ------------
+        speech.py
+        ------------
+        
+        Allows your Windows python program to:
+        * execute a callback when certain phrases are heard
+        * execute a callback when any understandable text is heard
+        * have different callbacks for different groups of phrases
+        * convert text to speech.
+        
+        Example
+        =======
+        
+        Showing speaking out loud and listening for all recognizable words.
+        ::
+        
+        import speech
+        import time
+        
+        def callback(phrase, listener):
+        if phrase == "goodbye":
+        listener.stoplistening()
+        speech.say(phrase)
+        
+        listener = speech.listenforanything(callback)
+        while listener.islistening():
+        time.sleep(.5)
+        
+        Requirements
+        ============
+        
+        Requires Windows XP or Vista, and Python 2.4 or 2.5.
+        
+        In addition to easy_installing speech.py, you'll need pywin32 (for Python
+        `2.5 <http://tinyurl.com/5ezco9>`__ or `2.4 <http://tinyurl.com/5uzpox>`__)
+        and the Microsoft Speech kit (installer `here <http://tinyurl.com/zflb>`__).
+        
+        Resources
+        =========
+        
+        * Homepage: http://pyspeech.googlecode.com/
+        * Source:
+        
+        - Browse at http://code.google.com/p/pyspeech/source/browse/trunk/
+        
+        - Get with **svn co http://pyspeech.googlecode.com/svn/trunk/
+        pyspeech-read-only**
+        
+        Please let me know if you like or use this module - it would make
+        my day!
+        
+Keywords: speech recognition text-to-speech text to speech tts voice recognition
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Desktop Environment

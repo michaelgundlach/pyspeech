@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.4.3',
+      version='0.4.10',
       py_modules=['speech'],
       #install_requires=['win32com','pythoncom'],
 
@@ -40,11 +40,12 @@ Example
 Requirements
 ============
 
-  Requires Windows XP and Python 2.5.
+  Requires Windows XP or Vista, and Python 2.4 or 2.5.
 
-  In addition to easy_installing speech.py, you'll need pywin32 (installer
-  `here <http://tinyurl.com/5ezco9>`__) and the Microsoft Speech kit
-  (installer `here <http://tinyurl.com/zflb>`__).
+  In addition to easy_installing speech.py, you'll need pywin32
+  (`for Python 2.5 <http://tinyurl.com/5ezco9>`__ or
+  `for Python 2.4 <http://tinyurl.com/5uzpox>`__) and
+  the Microsoft Speech kit (installer `here <http://tinyurl.com/zflb>`__).
 
 Resources
 =========
