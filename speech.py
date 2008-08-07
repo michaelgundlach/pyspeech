@@ -58,6 +58,10 @@ class Listener(object):
     _all = set()
 
     def __init__(self, context, grammar, callback):
+        """
+        This should never be called directly; use speech.listenfor()
+        and speech.listenforanything() to create Listener objects.
+        """
         self._grammar = grammar
         Listener._all.add(self)
 
@@ -129,31 +133,45 @@ def stoplistening():
 def islistening():
     """True if speech is listening to any listeners."""
     return not not Listener._all
+
 def listenforanything(callback):
     """
     When anything resembling English is heard, callback(spoken_text, listener)
-    is executed.  Execution takes place on a single thread shared by all
-    listener callbacks.  Returns a Listener object, which is also passed as
-    the second argument to callback.
+    is executed.  Returns a Listener object.
+
+    The first argument to callback will be the string of text heard.
+    The second argument will be the same listener object returned by
+    listenforanything().
+
+    Execution takes place on a single thread shared by all listener callbacks.
     """
     return _startlistening(None, callback)
 
 def listenfor(phraselist, callback):
     """
     If any of the phrases in the given list are heard,
-    callback(spoken_text, listener) is executed.  Execution takes place
-    on a single thread shared by all listener callbacks.  Returns a
-    Listener object, which is also passed as the second argument to callback.
+    callback(spoken_text, listener) is executed.  Returns a Listener object.
+
+    The first argument to callback will be the string of text heard.
+    The second argument will be the same listener object returned by
+    listenfor().
+
+    Execution takes place on a single thread shared by all listener callbacks.
     """
     return _startlistening(phraselist, callback)
 
 def _startlistening(phraselist, callback):
     """
     Starts listening in Command-and-Control mode if phraselist is
-    not None, or dictation mode if phraselist is None.  When a
-    phrase is heard, callback(phrase_text, listener) is executed.
-    Returns a Listener object, which is also passed as the second
-    argument to callback.
+    not None, or dictation mode if phraselist is None.  When a phrase is
+    heard, callback(phrase_text, listener) is executed.  Returns a
+    Listener object.
+
+    The first argument to callback will be the string of text heard.
+    The second argument will be the same listener object returned by
+    listenfor().
+
+    Execution takes place on a single thread shared by all listener callbacks.
     """
     # Make a command-and-control grammar        
     context = _recognizer.CreateRecoContext()
