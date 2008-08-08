@@ -1,5 +1,11 @@
+README.txt
+example.py
 setup.py
 speech.py
+upload
+dist/speech-0.4.10-py2.4.egg
+dist/speech-0.4.10-py2.5.egg
+dist/speech-0.4.10.zip
 speech.egg-info/PKG-INFO
 speech.egg-info/SOURCES.txt
 speech.egg-info/dependency_links.txt

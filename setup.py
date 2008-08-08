@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.4.10',
+      version='0.4.11',
       py_modules=['speech'],
       #install_requires=['win32com','pythoncom'],
 
