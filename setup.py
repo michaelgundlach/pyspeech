@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.4.11',
+      version='0.5.0'
       py_modules=['speech'],
       #install_requires=['win32com','pythoncom'],
 
@@ -14,6 +14,7 @@ speech.py
 ------------
 
   Allows your Windows python program to:
+    * get the text spoken by the user when prompted (a la raw_input())
     * execute a callback when certain phrases are heard
     * execute a callback when any understandable text is heard
     * have different callbacks for different groups of phrases
@@ -22,11 +23,15 @@ speech.py
 Example
 =======
 
-  Showing speaking out loud and listening for all recognizable words.
+  Showing speaking out loud, a simple input, and listening for all
+  recognizable words.
   ::
 
     import speech
     import time
+
+    response = speech.input("Say something, please.")
+    speech.say("You said " + response)
 
     def callback(phrase, listener):
         if phrase == "goodbye":
@@ -40,7 +45,9 @@ Example
 Requirements
 ============
 
-  Requires Windows XP or Vista, and Python 2.4 or 2.5.
+  Requires Windows XP or Vista, and Python 2.4 or 2.5.  If you use
+  Windows Vista, you'll need to say "start listening" if Speech
+  Recognition is not awake.
 
   In addition to easy_installing speech.py, you'll need pywin32
   (`for Python 2.5 <http://tinyurl.com/5ezco9>`__ or

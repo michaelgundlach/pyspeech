@@ -138,6 +138,32 @@ def say(phrase):
     """Say the given phrase out loud."""
     _voice.Speak(phrase)
 
+
+def input(prompt=None, phraselist=None):
+    """
+    Print the prompt if it is not None, then listen for a string in phraselist
+    (or anything, if phraselist is None.)  Returns the string response that is
+    heard.  Note that this will block the thread until a response is heard or
+    Ctrl-C is pressed.
+    """
+    def response(phrase, listener):
+        if not hasattr(listener, '_phrase'):
+            listener._phrase = phrase # so outside caller can find it
+        listener.stoplistening()
+
+    if prompt:
+        print prompt
+
+    if phraselist:
+        listener = listenfor(phraselist, response)
+    else:
+        listener = listenforanything(response)
+
+    while listener.islistening():
+        time.sleep(.1)
+
+    return listener._phrase # hacky way to pass back a response...
+
 def stoplistening():
     """
     Cause all Listeners to stop listening.  Returns True if at least one

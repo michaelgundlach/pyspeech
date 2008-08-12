@@ -38,7 +38,9 @@ Description:
         Requirements
         ============
         
-        Requires Windows XP or Vista, and Python 2.4 or 2.5.
+        Requires Windows XP or Vista, and Python 2.4 or 2.5.  If you use
+        Windows Vista, you'll need to say "start listening" if Speech
+        Recognition is not awake.
         
         In addition to easy_installing speech.py, you'll need pywin32
         (`for Python 2.5 <http://tinyurl.com/5ezco9>`__ or
