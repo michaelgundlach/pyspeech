@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: speech
-Version: 0.4.11
+Version: 0.5.0
 Summary: A clean interface to Windows speech recognition and text-to-speech capabilities.
 Home-page: http://code.google.com/p/pyspeech/
 Author: Michael Gundlach
@@ -12,6 +12,7 @@ Description:
         ------------
         
         Allows your Windows python program to:
+        * get the text spoken by the user when prompted (a la raw_input())
         * execute a callback when certain phrases are heard
         * execute a callback when any understandable text is heard
         * have different callbacks for different groups of phrases
@@ -20,11 +21,15 @@ Description:
         Example
         =======
         
-        Showing speaking out loud and listening for all recognizable words.
+        Showing speaking out loud, a simple input, and listening for all
+        recognizable words.
         ::
         
         import speech
         import time
+        
+        response = speech.input("Say something, please.")
+        speech.say("You said " + response)
         
         def callback(phrase, listener):
         if phrase == "goodbye":
