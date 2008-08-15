@@ -6,9 +6,8 @@ Please let me know if you like or use this module -- it would make my day!
 speech.py: Copyright 2008 Michael Gundlach  (gundlach at gmail)
 License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
-For this module to work, you must install the Microsoft Speech kit:
-download and run "SpeechSDK51.exe" from http://tinyurl.com/5m6v2
-For this module to work, you need pywin32 (http://tinyurl.com/5ezco9) and
+For this module to work, you'll need pywin32 (http://tinyurl.com/5ezco9
+for Python 2.5 or http://tinyurl.com/5uzpox for Python 2.4) and
 the Microsoft Speech kit (http://tinyurl.com/zflb).
 
 
@@ -17,6 +16,7 @@ Classes:
 
 Functions:
     say(phrase): Say the given phrase out loud.
+    input(prompt, phraselist): Block until input heard, then return text.
     stoplistening(): Like calling stoplistening() on all Listeners.
     islistening(): True if any Listener is listening.
     listenforanything(callback): Run a callback when any text is heard.
@@ -27,7 +27,9 @@ Very simple usage example:
 
 import speech
 
-speech.say("Hello")
+speech.say("Say something.")
+
+print "You said " + speech.input()
 
 def L1callback(phrase, listener):
     print phrase
