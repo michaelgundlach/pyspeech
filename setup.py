@@ -51,8 +51,9 @@ Requirements
 
   In addition to easy_installing speech.py, you'll need pywin32
   (`for Python 2.5 <http://tinyurl.com/5ezco9>`__ or
-  `for Python 2.4 <http://tinyurl.com/5uzpox>`__) and
-  the Microsoft Speech kit (installer `here <http://tinyurl.com/zflb>`__).
+  `for Python 2.4 <http://tinyurl.com/5uzpox>`__); and if you're on XP,
+  you'll need the Microsoft Speech kit (installer
+  `here <http://tinyurl.com/zflb>`__).
 
 Resources
 =========
