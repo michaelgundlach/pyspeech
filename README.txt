@@ -1,3 +1,14 @@
+<<<<<<< .mine
+An example script to get you started is in example.py.  To run it, type
+  python.exe example.py
+in your Python directory.
+
+Questions?  Please visit the homepage at http://pyspeech.googlecode.com .
+
+Thanks.
+Michael Gundlach
+gundlach@gmail.com
+=======
 Several useful example scripts are available at
 
   http://code.google.com/p/pyspeech/wiki/Examples
@@ -13,3 +24,4 @@ Questions?  Visit the project page at http://pyspeech.googlecode.com .
 Thanks.
 Michael Gundlach
 gundlach@gmail.com
+>>>>>>> .r47
