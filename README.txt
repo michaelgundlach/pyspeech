@@ -8,7 +8,7 @@ and an example script to get you started is in example.py.  To run it, type
 
 in your Python directory.
 
-Questions?  Please visit the project page at http://pyspeech.googlecode.com .
+Questions?  Please do visit the project page at http://pyspeech.googlecode.com .
 
 Thanks.
 Michael Gundlach
