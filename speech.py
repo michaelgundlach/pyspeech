@@ -8,7 +8,7 @@ License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
 For this module to work, you'll need pywin32 (http://tinyurl.com/5ezco9
 for Python 2.5 or http://tinyurl.com/5uzpox for Python 2.4) and
-the Microsoft Speech kit (http://tinyurl.com/zflb).
+the Microsoft Speech kit (http://tinyurl.com/br8ysh).
 
 
 Classes:
