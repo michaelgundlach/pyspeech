@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='speech',
-      version='0.5.1',
+      version='0.5.2',
       py_modules=['speech'],
       #install_requires=['win32com','pythoncom'],
 
@@ -53,7 +53,7 @@ Requirements
   (`for Python 2.5 <http://tinyurl.com/5ezco9>`__ or
   `for Python 2.4 <http://tinyurl.com/5uzpox>`__); and if you're on XP,
   you'll need the Microsoft Speech kit (installer
-  `here <http://tinyurl.com/zflb>`__).
+  `here <http://tinyurl.com/br8ysh>`__).
 
 Resources
 =========
